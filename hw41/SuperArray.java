@@ -1,3 +1,7 @@
+// Soojin Choi
+// APCS1 pd02
+// HW41 -- Array of Steel
+// 2017-11-27 
 /***************************
  * class SuperArray
  * Wrapper class for array. Facilitates resizing,
@@ -14,30 +18,38 @@ public class SuperArray
   //default constructor – initializes 10-item array
   public SuperArray()
   {
-      _data = new int[10];
+      _size = 10;
+      _data = new int[_size];
   }
-
-
+    
   //output SuperArray in [a,b,c] format
   public String toString()
   {
-      return "";
-      /* YOUR IMPLEMENTATION HERE */
+      String collector = "[ "; //begins the String for of an array
+      for (int counter = 0; counter < _data.length - 1; counter++){
+	  collector += _data[counter] + ",";
+      }
+      collector += _data[_data.length - 1] + " ]"; //adds the last item without a comma at the end
+      return collector;
   }
 
 
   //double capacity of SuperArray
   private void expand()
   {
-    /* YOUR IMPLEMENTATION HERE */
+      _size *= 2; //doubles the size of the array.
+      int[] holder = new int[_size];
+      for (int x = 0; x < (_size / 2 ); x++){
+	  holder[x] = get(x);
+      }
+      _data = holder; //sets the holder array to _data
   }
 
 
   //accessor -- return value at specified index
   public int get( int index )
   {
-    /* YOUR IMPLEMENTATION HERE */
-      return _data[index];
+      return _data[index];//returns the item at the index
   }
 
 
@@ -45,15 +57,16 @@ public class SuperArray
   //           return old value at index
   public int set( int index, int newVal )
   {
-    /* YOUR IMPLEMENTATION HERE */
-      return 1;
+      int oldValue = _data[index];//saves the oldVal
+      _data[index] = newVal;//sets the item at index to the newVal.
+      return oldValue;
   }
 
 
   //main method for testing
   public static void main( String[] args )
   {
-    /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
+   
       SuperArray curtis = new SuperArray();
       System.out.println( "Printing empty SuperArray curtis..." );
       System.out.println( curtis );
@@ -70,6 +83,7 @@ public class SuperArray
       System.out.println("Printing expanded SuperArray curtis...");
       System.out.println(curtis);
       }
+      /*~~~~~~~~move~me~down~~~~~~~~~~~~~~V~~~~~~~~
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~~~~*/
   }//end main()
 

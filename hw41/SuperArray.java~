@@ -14,14 +14,15 @@ public class SuperArray
   //default constructor – initializes 10-item array
   public SuperArray()
   {
-    /* YOUR IMPLEMENTATION HERE */
+      _data = new int[10];
   }
 
 
   //output SuperArray in [a,b,c] format
   public String toString()
   {
-    /* YOUR IMPLEMENTATION HERE */
+      return "";
+      /* YOUR IMPLEMENTATION HERE */
   }
 
 
@@ -36,6 +37,7 @@ public class SuperArray
   public int get( int index )
   {
     /* YOUR IMPLEMENTATION HERE */
+      return _data[index];
   }
 
 
@@ -44,6 +46,7 @@ public class SuperArray
   public int set( int index, int newVal )
   {
     /* YOUR IMPLEMENTATION HERE */
+      return 1;
   }
 
 
