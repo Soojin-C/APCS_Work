@@ -1,0 +1,24 @@
+import cs1.Keyboard;
+
+public class Smarticles extends Student{
+  Courses second;
+  public Smarticles(){
+    super();
+    String prompter;
+    smarts += 2;//gives an extra boost based on the personality type.
+
+    prompter = "Please choose another extra class:\n";
+    prompter += "\t1: History\n";
+    prompter += "\t2: Art Appreciation\n";
+    prompter += "\t3: Science";
+    System.out.println(prompter);
+    InsertCourse(second);
+
+    //second.please();
+  }
+
+  public Smarticles(String newName){
+    this();
+    name = newName;
+  }
+}

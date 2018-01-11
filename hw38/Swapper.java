@@ -57,7 +57,7 @@ public class Swapper{
 	}
     public static int error(int max){
 	int x = Keyboard.readInt(); 
-	  while (!(x <= max)){
+	while (!((x <= max) && (x > 0))){
 	       System.out.println("Invalid number... Try Again:");
 	       x = Keyboard.readInt();
 		}
