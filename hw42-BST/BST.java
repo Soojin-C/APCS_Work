@@ -47,7 +47,7 @@ public class BST
   //recursive helper for insert(int)
   public void insert( TreeNode stRoot, TreeNode newNode )
   {
-    if ( newNode.getValue() < stRoot.getValue() ){
+    if ( stRoot.getValue() > newNode.getValue()){
       if (stRoot.getLeft() == null){
         stRoot.setLeft(newNode);
       }
@@ -64,9 +64,6 @@ public class BST
       }
     }
   }//end insert()
-
-
-
 
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~v~~TRAVERSALS~~v~~~~~~~~~~~~~~~~~~~~~
@@ -123,12 +120,9 @@ public class BST
   //~~~~~~~~~~~~~^~~TRAVERSALS~~^~~~~~~~~~~~~~~~~~~~~~
   //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
   //main method for testing
   public static void main( String[] args )
   {
-
-
       BST arbol = new BST();
 
       //PROTIP: sketch state of tree after each insertion
