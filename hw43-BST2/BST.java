@@ -135,7 +135,8 @@ public class BST
         return null;
       }
       else if (curr.getValue() == target){
-        return curr;
+	  TreeNode temp = new TreeNode(target);
+        return temp;
       }
       else{
         if (curr.getValue() > target){
@@ -199,6 +200,17 @@ public class BST
       }
     }
 
+    public TreeNode remove(int target){
+	return remove(target, _root);
+    }
+    private TreeNode remove(int target, TreeNode curr){
+	TreeNode _leader = _root; //Change order later
+	TreeNode _follower = _leader;
+	if () = 
+	
+	return curr;
+    }
+    public boolean isLeaf(){}
 
   //main method for testing
   public static void main( String[] args )
