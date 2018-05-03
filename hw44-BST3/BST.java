@@ -1,7 +1,7 @@
-// Soojin Choi
+// Soojin Choi, Aidan Griffin
 // APCS2 pd08
-// HW43 -- BSTs is the Perfect Place for Shade
-// 2018-05-01
+// HW44 -- Prune Your Tree
+// 2018-05-02
 /*****************************************************
  * class BST - v1:partial
  * Implementation of the BINARY SEARCH TREE abstract data type (ADT)
