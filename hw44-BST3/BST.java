@@ -201,16 +201,77 @@ public class BST
     }
 
     public TreeNode remove(int target){
-	return remove(target, _root);
+
+      TreeNode _follower = _root;
+      TreeNode _leader = _root;
+      boolean found = false;
+
+      //Finds the value in the tree;
+      while (!found){ //Check until the value is confirmed absent.
+        if ( _leader.getValue() == target){ //Found Value
+            found = true;
+        }
+
+        else if (target < _leader.getValue()){ //if the target is less then the root value...
+          _follower = _leader; //Sets follower to the node that _leader was on.
+          _leader = _leader.getLeft(); //_leader moves forward to the left.
+        }
+        else{ //else the target is greater than the root value
+          _follower = _leader; //Sets follower to the node that _leader was on.
+          _leader = _leader.getRight(); //leader moves forward to the right.
+        }
+      }
+
+      System.out.println(_leader + "<leader follower>" + _follower);
+
+      //Base Case: The node being removed is a leaf
+      if (_leader.getLeft() == null && _leader.getRight() == null){
+        if (target < _follower.getValue()){
+          _follower.setLeft(null);
+        }
+        else{
+          _follower.setRight(null);
+        }
+        return _leader;
+      }
+
+      //Base Case: The node being removed has one child
+	    else if ( _leader.getLeft() == null || _leader.getRight() == null ) {
+        TreeNode tmp;
+        if (_leader.getLeft() == null){
+          tmp = _leader.getRight();
+        }
+        else{
+          tmp = _leader.getLeft();
+        }
+
+        if (target < _follower.getValue()){
+          _follower.setLeft(tmp);
+        }
+        else{
+          _follower.setRight(tmp);
+        }
+        return _leader;
+      }
+
+      //Base Case: The node has two children.
+      else{
+        int rightVal = rightMost(_leader.getLeft());
+        System.out.println(rightVal);
+        TreeNode hold = new TreeNode(_leader.getValue());
+        _leader.setValue(rightVal);
+        return hold;
+      }
     }
-    private TreeNode remove(int target, TreeNode curr){
-	TreeNode _leader = _root; //Change order later
-	TreeNode _follower = _leader;
-	if () = 
-	
-	return curr;
+
+    public int rightMost(TreeNode curr){
+      if (curr.getRight() == null){
+        int holder = curr.getValue();
+        remove(holder);
+        return holder;
+      }
+      return rightMost(curr.getRight());
     }
-    public boolean isLeaf(){}
 
   //main method for testing
   public static void main( String[] args )
@@ -246,6 +307,30 @@ public class BST
     System.out.println(arbol.height());
 
     System.out.println(arbol.numLeaves());
+
+    System.out.println(arbol.remove(2));
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "in-order traversal:" );
+    arbol.inOrderTrav();
+    System.out.println( "\n-----------------------------");
+
+    //arbol.insert(2);
+
+    System.out.println(arbol.remove(5));
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "in-order traversal:" );
+    arbol.inOrderTrav();
+    System.out.println( "\n-----------------------------");
+
+    System.out.println(arbol.remove(1));
+
+    System.out.println( "\n-----------------------------");
+    System.out.println( "in-order traversal:" );
+    arbol.inOrderTrav();
+    System.out.println( "\n-----------------------------");
+
     /*~~~~~~~~~~~~move~me~down~~~~~~~~~~~~~~~~~~~~~~
       <<< YOUR NEW TEST CALLS HERE >>>
       ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
