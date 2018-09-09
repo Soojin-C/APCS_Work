@@ -1,0 +1,5 @@
+public class Courses{
+  public static void please(){
+    System.out.println("test");
+  }
+}
